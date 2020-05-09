@@ -5,8 +5,8 @@
 #ifndef FDF_FDF_H
 #define FDF_FDF_H
 
-#include "./libft/libft.h"
-#include "./minilibx_macos/mlx.h"
+#include "../libft/libft.h"
+#include "../minilibx_macos/mlx.h"
 #include <math.h>
 
 //gcc main.c fdf.h ./libft/libft.a ./minilibx_macos/libmlx.a  -framework OpenGL -framework AppKit
