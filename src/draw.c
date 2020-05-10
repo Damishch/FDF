@@ -6,7 +6,7 @@
 /*   By: alorilee <alorilee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/09 01:33:44 by alorilee          #+#    #+#             */
-/*   Updated: 2020/05/09 01:34:31 by alorilee         ###   ########.fr       */
+/*   Updated: 2020/05/11 00:42:37 by alorilee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	draw_line_x(float x, float y, float x1, t_fdf *fdf)
 	float	x_step;
 	int		z;
 	int		z1;
-	float   y1;
+	float	y1;
 
 	y1 = y;
 	zoom(&x, &y, &z, fdf);
@@ -40,7 +40,7 @@ void	draw_line_x(float x, float y, float x1, t_fdf *fdf)
 	fdf->color = (z || z1) ? 0xe80c0c : 0xffffff;
 	if (fdf->iso > 0)
 		isometric(&x, &y, z, fdf);
-    if (fdf->iso > 0)
+	if (fdf->iso > 0)
 		isometric(&x1, &y1, z1, fdf);
 	shift(&x, &y, fdf);
 	shift(&x1, &y1, fdf);
@@ -57,31 +57,31 @@ void	draw_line_x(float x, float y, float x1, t_fdf *fdf)
 
 void	draw_line_y(float x, float y, float y1, t_fdf *fdf)
 {
-    float	y_step;
-    float	x_step;
-    int		z;
-    int		z1;
-    float   x1;
+	float	y_step;
+	float	x_step;
+	int		z;
+	int		z1;
+	float	x1;
 
-    x1 = x;
-    zoom(&x, &y, &z, fdf);
-    zoom(&x1, &y1, &z1, fdf);
-    fdf->color = (z || z1) ? 0xe80c0c : 0xffffff;
-    if (fdf->iso > 0)
-        isometric(&x, &y, z, fdf);
-    if (fdf->iso > 0)
-        isometric(&x1, &y1, z1, fdf);
-    shift(&x, &y, fdf);
-    shift(&x1, &y1, fdf);
-    y_step = y1 - y;
-    x_step = x1 - x;
-    get_step(&x_step, &y_step);
-    while ((int)(x1 - x) || (int)(y1 - y))
-    {
-        mlx_pixel_put(fdf->mlx_ptr, fdf->win_ptr, (int)x, (int)y, fdf->color);
-        x += x_step;
-        y += y_step;
-    }
+	x1 = x;
+	zoom(&x, &y, &z, fdf);
+	zoom(&x1, &y1, &z1, fdf);
+	fdf->color = (z || z1) ? 0xe80c0c : 0xffffff;
+	if (fdf->iso > 0)
+		isometric(&x, &y, z, fdf);
+	if (fdf->iso > 0)
+		isometric(&x1, &y1, z1, fdf);
+	shift(&x, &y, fdf);
+	shift(&x1, &y1, fdf);
+	y_step = y1 - y;
+	x_step = x1 - x;
+	get_step(&x_step, &y_step);
+	while ((int)(x1 - x) || (int)(y1 - y))
+	{
+		mlx_pixel_put(fdf->mlx_ptr, fdf->win_ptr, (int)x, (int)y, fdf->color);
+		x += x_step;
+		y += y_step;
+	}
 }
 
 void	draw_map(t_fdf *fdf)
