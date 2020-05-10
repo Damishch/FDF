@@ -32,17 +32,16 @@ void	draw_line_x(float x, float y, float x1, t_fdf *fdf)
 	float	x_step;
 	int		z;
 	int		z1;
-	float y1;
+	float   y1;
 
-    y1 = y;
+	y1 = y;
 	zoom(&x, &y, &z, fdf);
 	zoom(&x1, &y1, &z1, fdf);
 	fdf->color = (z || z1) ? 0xe80c0c : 0xffffff;
 	if (fdf->iso > 0)
-	{
 		isometric(&x, &y, z, fdf);
+    if (fdf->iso > 0)
 		isometric(&x1, &y1, z1, fdf);
-	}
 	shift(&x, &y, fdf);
 	shift(&x1, &y1, fdf);
 	y_step = y1 - y;
@@ -62,17 +61,16 @@ void	draw_line_y(float x, float y, float y1, t_fdf *fdf)
     float	x_step;
     int		z;
     int		z1;
-    float x1;
+    float   x1;
 
     x1 = x;
     zoom(&x, &y, &z, fdf);
     zoom(&x1, &y1, &z1, fdf);
     fdf->color = (z || z1) ? 0xe80c0c : 0xffffff;
     if (fdf->iso > 0)
-    {
         isometric(&x, &y, z, fdf);
+    if (fdf->iso > 0)
         isometric(&x1, &y1, z1, fdf);
-    }
     shift(&x, &y, fdf);
     shift(&x1, &y1, fdf);
     y_step = y1 - y;
