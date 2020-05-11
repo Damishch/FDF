@@ -6,7 +6,7 @@
 /*   By: alorilee <alorilee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/09 01:17:10 by alorilee          #+#    #+#             */
-/*   Updated: 2020/05/09 01:25:14 by alorilee         ###   ########.fr       */
+/*   Updated: 2020/05/11 18:01:42 by alorilee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,8 @@ int		main(int ac, char **av)
 
 	if (ac != 2)
 		write(1, "usage: ./fdf @map@\n", 19);
-	fdf = (t_fdf *)malloc(sizeof(t_fdf));
+	if (!(fdf = (t_fdf *)malloc(sizeof(t_fdf))))
+		return (0);
 	read_file(av[1], fdf);
 	reset(fdf);
 	fdf->mlx_ptr = mlx_init();
