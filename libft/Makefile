@@ -6,7 +6,7 @@
 #    By: alorilee <alorilee@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/19 10:32:39 by lvoyance          #+#    #+#              #
-#    Updated: 2020/05/09 02:27:10 by alorilee         ###   ########.fr        #
+#    Updated: 2020/05/14 20:31:36 by alorilee         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ CFLAGS	= -Wall -Wextra -Werror
 
 all: $(NAME)
 
-%.o:%.c
+%.o:%.c libft.h
 	$(CC) $(CFLAGS) -o $@ -c $<
 	
 $(NAME): $(OBJS)

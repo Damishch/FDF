@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lvoyance <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: alorilee <alorilee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/19 09:55:58 by lvoyance          #+#    #+#             */
-/*   Updated: 2019/09/22 18:11:32 by lvoyance         ###   ########.fr       */
+/*   Updated: 2020/05/14 21:02:34 by alorilee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,12 @@ typedef struct		s_list
 	struct s_list	*next;
 }					t_list;
 
-typedef struct	s_arr
+typedef struct		s_arr
 {
-    int				fd;
-    char			*rest;
-    struct s_arr	*next;
-}				t_arr;
+	int				fd;
+	char			*rest;
+	struct s_arr	*next;
+}					t_arr;
 
 int					ft_atoi(const char *str);
 int					ft_isalnum(int c);
@@ -101,5 +101,5 @@ int					ft_word_len(char const *str, char c);
 void				ft_swap(int *a, int *b);
 int					*ft_range(int min, int max);
 int					ft_count_if(char **tab, int (*f)(char*));
-int                 get_next_line(const int fd, char **line);
+int					get_next_line(const int fd, char **line);
 #endif

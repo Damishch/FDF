@@ -6,7 +6,7 @@
 #    By: alorilee <alorilee@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/19 10:32:39 by lvoyance          #+#    #+#              #
-#    Updated: 2020/05/09 03:27:08 by alorilee         ###   ########.fr        #
+#    Updated: 2020/05/14 21:10:05 by alorilee         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ MLX_INC	= -I ./minilibx_macos
 MLX_LNK	= -L ./minilibx_macos -l mlx -framework OpenGL -framework AppKit
 
 FT		= ./libft/
-FT_LIB	= $(addprefix $(FT),libft.a)
+FT_LIB	= createlib
 FT_INC	= -I ./libft
 FT_LNK	= -L ./libft -l ft
 
@@ -44,12 +44,12 @@ all: obj $(FT_LIB) $(MLX_LIB) $(NAME)
 obj:
 	mkdir -p $(OBJDIR)
 
-$(OBJDIR)%.o:$(SRCDIR)%.c
+$(OBJDIR)%.o:$(SRCDIR)%.c $(INCDIR)fdf.h
 	$(CC) $(CFLAGS) $(MLX_INC) $(FT_INC) -I $(INCDIR) -o $@ -c $<
 
 $(FT_LIB):
 	make -C $(FT)
-
+	
 $(MLX_LIB):
 	make -C $(MLX)
 	
