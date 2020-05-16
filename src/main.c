@@ -6,7 +6,7 @@
 /*   By: alorilee <alorilee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/09 01:17:10 by alorilee          #+#    #+#             */
-/*   Updated: 2020/05/14 21:18:55 by alorilee         ###   ########.fr       */
+/*   Updated: 2020/05/16 22:19:59 by alorilee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,20 +79,23 @@ int		deal_key(int key, t_fdf *fdf)
 
 int		main(int ac, char **av)
 {
-	t_fdf *fdf;
+	t_fdf	*fdf;
 
-	if (ac != 2)
-		write(1, "usage: ./fdf @map@\n", 19);
-	if (!(fdf = (t_fdf *)malloc(sizeof(t_fdf))))
-		return (0);
-	read_file(av[1], fdf);
-	reset(fdf);
-	fdf->mlx_ptr = mlx_init();
-	fdf->win_ptr = mlx_new_window(fdf->mlx_ptr, (int)fdf->win_x,
-	(int)fdf->win_y, "FDF");
-	print_menu(fdf);
-	draw_map(fdf);
-	mlx_key_hook(fdf->win_ptr, deal_key, fdf);
-	mlx_loop(fdf->mlx_ptr);
+	errno = 0;
+	if (ac == 2)
+	{
+		if (!(fdf = (t_fdf *)malloc(sizeof(t_fdf))))
+			return (0);
+		read_file(av[1], fdf);
+		reset(fdf);
+		fdf->mlx_ptr = mlx_init();
+		fdf->win_ptr = mlx_new_window(fdf->mlx_ptr, (int)fdf->win_x,
+		(int)fdf->win_y, "FDF");
+		print_menu(fdf);
+		draw_map(fdf);
+		mlx_key_hook(fdf->win_ptr, deal_key, fdf);
+		mlx_loop(fdf->mlx_ptr);
+	}
+	terminate(ERR_USAGE);
 	return (0);
 }

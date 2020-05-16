@@ -6,7 +6,7 @@
 /*   By: alorilee <alorilee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/19 09:55:58 by lvoyance          #+#    #+#             */
-/*   Updated: 2020/05/14 21:02:34 by alorilee         ###   ########.fr       */
+/*   Updated: 2020/05/16 19:58:12 by alorilee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ int					ft_isalnum(int c);
 int					ft_isalpha(int c);
 int					ft_isascii(int c);
 int					ft_isdigit(int c);
+int					ft_isspace(int c);
+int					ft_isnumber(char *str);
 int					ft_isprint(int c);
 int					ft_memcmp(const void *s1, const void *s2, size_t len);
 int					ft_strcmp(const char *s1, const char *s2);
