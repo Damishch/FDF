@@ -6,7 +6,7 @@
 /*   By: alorilee <alorilee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/30 10:42:48 by alorilee          #+#    #+#             */
-/*   Updated: 2020/05/16 18:38:27 by alorilee         ###   ########.fr       */
+/*   Updated: 2020/05/20 01:14:18 by alorilee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,9 @@ int				get_next_line(const int fd, char **line)
 	static t_arr	*list;
 	t_arr			*tmp;
 	int				ret;
+	char			buff[BUFF_SIZE + 1];
 
-	if (fd < 0 || line == 0 || !line)
+	if (fd < 0 || line == 0 || !line || (read(fd, buff, 0) < 0))
 		return (-1);
 	if (!list)
 		list = newlist(fd);

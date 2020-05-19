@@ -6,7 +6,7 @@
 /*   By: alorilee <alorilee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/09 01:29:18 by alorilee          #+#    #+#             */
-/*   Updated: 2020/05/16 22:18:18 by alorilee         ###   ########.fr       */
+/*   Updated: 2020/05/20 01:31:30 by alorilee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ int		get_x_value(char *file)
 
 	if (!((fd = open(file, O_RDONLY)) >= 0))
 		terminate(ERR_MAP);
-	get_next_line(fd, &line);
+	if (get_next_line(fd, &line) == -1)
+		terminate(ERR_MAP);
 	x = ft_countwords(line, ' ');
 	free(line);
 	close(fd);
